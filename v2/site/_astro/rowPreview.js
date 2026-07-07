@@ -24,7 +24,7 @@ rows.forEach((row, i) => {
 
     const r = row.getBoundingClientRect();
     const table = row.closest(".v2-index__table")?.getBoundingClientRect() ?? r;
-    const cardW = Math.min(400, window.innerWidth * 0.32) + 16;
+    const cardW = Math.min(280, window.innerWidth * 0.22) + 16;
     const roomRight = window.innerWidth - table.right;
     // sit to the right of the table when there's room, overlap its right edge when not
     const x = roomRight > cardW + 24

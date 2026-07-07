@@ -266,9 +266,9 @@ def build_html():
 
 PREVIEW_CSS = """
 .row-preview{position:fixed;left:0;top:0;z-index:60;pointer-events:none;will-change:transform;transition:transform .38s cubic-bezier(.22,1,.36,1)}
-.row-preview__card{display:block;width:min(400px,32vw);padding:7px 7px 7px;background:var(--white,#fff);border:1px solid var(--v2-hairline,#e4e2de);box-shadow:#00000029 0 18px 44px,#00000014 0 4px 12px;transform-origin:center center;opacity:0;transform:translateY(-50%) scale(.84) rotate(calc(var(--pt,4deg)*1.6));transition:opacity .16s ease,transform .42s cubic-bezier(.34,1.4,.64,1)}
+.row-preview__card{display:block;width:min(280px,22vw);padding:7px 7px 7px;background:var(--white,#fff);border:1px solid var(--v2-hairline,#e4e2de);box-shadow:#00000029 0 18px 44px,#00000014 0 4px 12px;transform-origin:center center;opacity:0;transform:translateY(-50%) scale(.84) rotate(calc(var(--pt,4deg)*1.6));transition:opacity .16s ease,transform .42s cubic-bezier(.34,1.4,.64,1)}
 .row-preview.is-visible .row-preview__card{opacity:1;transform:translateY(-50%) scale(1) rotate(var(--pt,4deg))}
-.row-preview__card img{display:block;width:100%;height:auto;max-height:300px;object-fit:cover;background:#eceae7}
+.row-preview__card img{display:block;width:100%;height:auto;max-height:200px;object-fit:cover;background:#eceae7}
 @media (hover:none),(prefers-reduced-motion:reduce),(max-width:1023px){.row-preview{display:none}}
 """
 
@@ -298,7 +298,7 @@ rows.forEach((row, i) => {
 
     const r = row.getBoundingClientRect();
     const table = row.closest(".v2-index__table")?.getBoundingClientRect() ?? r;
-    const cardW = Math.min(400, window.innerWidth * 0.32) + 16;
+    const cardW = Math.min(280, window.innerWidth * 0.22) + 16;
     const roomRight = window.innerWidth - table.right;
     // sit to the right of the table when there's room, overlap its right edge when not
     const x = roomRight > cardW + 24
