@@ -77,6 +77,24 @@ def prose_paragraph(text):
     return f"<p data-astro-cid-j7pv25f6>\n{text}\n</p>"
 
 
+def journey_strip():
+    """the path so far, as its own strip: Frontend → … → ==ML (now)=="""
+    j = DATA["journey"]
+    parts = []
+    for i, st in enumerate(j["stages"]):
+        if i:
+            parts.append('<span class="v2-journey__arrow" aria-hidden="true" data-astro-cid-j7pv25f6>→</span>')
+        cls = "v2-journey__stage v2-journey__stage--now" if st.get("now") else "v2-journey__stage"
+        label = escape(st["label"])
+        if st.get("now"):
+            label = f'<mark class="v2-mark">{label} — now</mark>'
+        parts.append(f'<span class="{cls}" data-astro-cid-j7pv25f6>{label}</span>')
+    return (
+        f'<p class="v2-journey" aria-label="{escape(j["aria_label"])}" data-astro-cid-j7pv25f6>'
+        f'{"".join(parts)}</p>'
+    )
+
+
 def tag_html(tag):
     return (
         f'<span class="tag" style="--tag-color: {tag["color"]};" aria-label="{escape(tag["label"])}" '
@@ -249,7 +267,18 @@ def head_section():
 
 
 def build_html():
-    prose = "".join(prose_paragraph(p) for p in DATA["prose"])
+    lead = "".join(prose_paragraph(p) for p in DATA["prose_lead"])
+    more = "".join(prose_paragraph(p) for p in DATA["prose_more"])
+    tail = "".join(prose_paragraph(p) for p in DATA["prose_tail"])
+    prose = (
+        f"{lead}"
+        f'<div class="v2-prose__more" data-v2-more aria-hidden="true">{more}</div>'
+        f'<button type="button" class="basic-link v2-more-btn" data-v2-more-btn aria-expanded="false" '
+        f'data-hover-sound="tick" data-press-sound="press" data-astro-cid-j7pv25f6>'
+        f'<span data-v2-more-label>more</span> <span class="v2-more-btn__chev" aria-hidden="true">↓</span></button>'
+        f"{journey_strip()}"
+        f"{tail}"
+    )
     body = (
         f'<main class="v2" data-astro-cid-j7pv25f6> '
         f'<h3 data-astro-cid-j7pv25f6>{escape(S["author"])}</h3> '
@@ -264,6 +293,7 @@ def build_html():
         f'<script type="module" src="/_astro/SiteFooter.js"></script>'
         f'<script type="module" src="/_astro/index-page.js"></script>'
         f'<script type="module" src="/_astro/locLive.js"></script>'
+        f'<script type="module" src="/_astro/moreToggle.js"></script>'
         f'<!-- preview cards disabled for now: <script type="module" src="/_astro/rowPreview.js"></script> -->'
         f"</main>"
     )
@@ -285,6 +315,32 @@ PREVIEW_CSS = """
 .row-preview.is-visible .row-preview__card{opacity:1;transform:translateY(-50%) scale(1) rotate(var(--pt,4deg))}
 .row-preview__card img,.row-preview__card video{display:block;width:100%;height:auto;max-height:200px;object-fit:cover;background:#eceae7}
 @media (hover:none),(prefers-reduced-motion:reduce),(max-width:1023px){.row-preview{display:none}}
+
+.v2-prose__more{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .3s ease}
+.v2-prose__more.is-open{max-height:60em;opacity:1;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .45s ease .12s}
+.v2-more-btn{display:inline-flex;align-items:baseline;gap:.35em;background:none;border:0;padding:0;margin:6px 0 0;font:inherit;cursor:pointer;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,currentColor 38%,transparent);transition:text-decoration-color .2s ease}
+.v2-more-btn:hover{text-decoration-color:currentColor}
+.v2-more-btn__chev{font-size:.85em;opacity:.6;transition:transform .3s ease}
+.v2-more-btn[aria-expanded="true"] .v2-more-btn__chev{transform:rotate(180deg)}
+.v2-journey{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .55em;margin:20px 0 0;font-size:.92em}
+.v2-journey__stage{opacity:.6}
+.v2-journey__stage--now{opacity:1;font-weight:560}
+.v2-journey__arrow{opacity:.3}
+"""
+
+MORE_JS = """// bio "more" expander
+const btn = document.querySelector("[data-v2-more-btn]");
+const box = document.querySelector("[data-v2-more]");
+if (btn && box) {
+  const label = btn.querySelector("[data-v2-more-label]");
+  btn.addEventListener("click", () => {
+    const open = !box.classList.contains("is-open");
+    box.classList.toggle("is-open", open);
+    box.setAttribute("aria-hidden", String(!open));
+    btn.setAttribute("aria-expanded", String(open));
+    label.textContent = open ? "less" : "more";
+  });
+}
 """
 
 PREVIEW_JS = """// TinkerHub-style tilted preview flyer for .v2-row[data-preview]
@@ -502,6 +558,7 @@ def copy_assets():
             code += PREVIEW_CSS
         (astro_out / new).write_text(code)
     (astro_out / "rowPreview.js").write_text(PREVIEW_JS)
+    (astro_out / "moreToggle.js").write_text(MORE_JS)
     (astro_out / "locLive.js").write_text(
         'const u="' + S["location_source"] + '";\n'
         'fetch(u,{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(!d)return;'
