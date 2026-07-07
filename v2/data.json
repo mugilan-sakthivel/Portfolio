@@ -1,0 +1,251 @@
+{
+ "site": {
+  "title": "Mugilan Sakthivel",
+  "description": "Mugilan Sakthivel — AI engineer in Salem, India.",
+  "url": "https://mugilans.in",
+  "lang": "en",
+  "locale": "en_IN",
+  "author": "Mugilan Sakthivel",
+  "keywords": "Mugilan Sakthivel, AI engineer, agent engineer, LangGraph, DeepAgents, TypeScript, Python, portfolio, India",
+  "favicon": "/images/website-logo.png",
+  "og_image": "/images/website-logo.png",
+  "updated": "Updated 7 Jul 2026",
+  "job_title": "AI Engineer",
+  "email": "mugilankani951@gmail.com",
+  "timezone": "Asia/Kolkata",
+  "location_label": "in Bengaluru, India",
+  "city_short": "Bengaluru",
+  "social": {
+   "github": "https://github.com/mugilan-sakthivel",
+   "linkedin": "https://www.linkedin.com/in/mugilansakthivel/",
+   "x": "https://x.com/MugilanKani"
+  },
+  "location_source": "https://gist.githubusercontent.com/mugilan-sakthivel/7430d2ac7a323ef732c8d31d08e0e68b/raw/location.json"
+ },
+ "prose_lead": [
+  "I'm an AI engineer from India — ==50+ agents built across 3 years==, from single-purpose automations to full business solutions that actually return ROI. By day I'm Head of Engineering at Metaflow; one of 12 across India in the [Young Minds Fellowship](https://ymf.org.in/), backed by partners at Accel."
+ ],
+ "prose_more": [
+  "I love taking things from ==0 → 1== — talking to users, understanding what they actually want, and shaping the product around it. ==100-hour weeks==, for years, because building is what I enjoy most.",
+  "In the open I've shipped [caption-engine](https://github.com/mugilan-sakthivel/caption-engine), [Lua](https://github.com/tryLua/lua), and a [WhatsApp agent](https://github.com/mugilan-sakthivel/whatsapp-agent). Before Metaflow I founded Lua Labs.",
+  "GPT, Claude, Gemini; LangChain, LangGraph, Vercel AI / OpenAI / Claude SDKs; shipped end to end on GCP and AWS, monitored with LangSmith and Langfuse. My real edge: hand me anything new and I'm working in it ==within 24 hours==."
+ ],
+ "prose_tail": [
+  "Say hi on [GitHub](https://github.com/mugilan-sakthivel), [LinkedIn](https://www.linkedin.com/in/mugilansakthivel/), or {email} if you want to talk."
+ ],
+ "journey": {
+  "aria_label": "journey",
+  "stages": [
+   {
+    "label": "Full-stack developer"
+   },
+   {
+    "label": "AI agent builder"
+   },
+   {
+    "label": "Founder"
+   },
+   {
+    "label": "ML engineer",
+    "now": true
+   }
+  ]
+ },
+ "proof": {
+  "aria_label": "proof in the wild",
+  "label": "HackerRank Orchestrate",
+  "label_href": "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review/leaderboard?username=mugilankani951",
+  "stats": [
+   {
+    "num": "53rd",
+    "text": " of 12,885 worldwide",
+    "href": "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review/leaderboard?username=mugilankani951"
+   },
+   {
+    "num": "24h",
+    "text": " build",
+    "href": null
+   },
+   {
+    "num": null,
+    "text": "June 2026",
+    "href": null
+   }
+  ],
+  "quotes": [
+   {
+    "q": "==559 commits== building the v3 platform from 0",
+    "who": "Metaflow",
+    "who_href": null,
+    "org": "Feb 2026 – now"
+   },
+   {
+    "q": "==600+ commits== across Lua products",
+    "who": "Lua Labs",
+    "who_href": "https://github.com/tryLua/lua",
+    "org": "Dec 2025 – now"
+   },
+   {
+    "q": "==1000+ commits== shipping text, image, voice & video agents",
+    "who": "Kalvium Labs",
+    "who_href": null,
+    "org": "Mar – Nov 2025"
+   }
+  ],
+  "live_stars_repo": null,
+  "live_npm_package": null
+ },
+ "shelf": {
+  "heading": "Off screen",
+  "aria_label": "Photos",
+  "frames": [
+   {
+    "img": "/images/me.jpg",
+    "alt": "Mugilan",
+    "bubble": "that's me",
+    "width": 450,
+    "height": 600
+   },
+   {
+    "img": "/images/photo-2.jpg",
+    "alt": "Talk",
+    "bubble": "college talk day",
+    "width": 450,
+    "height": 600
+   },
+   {
+    "img": "/images/photo-3.jpg",
+    "alt": "Hackathon",
+    "bubble": "hackathon nights",
+    "width": 450,
+    "height": 600
+   },
+   {
+    "img": "/images/photo-4.jpg",
+    "alt": "Friends",
+    "bubble": "the team",
+    "width": 600,
+    "height": 600
+   },
+   {
+    "img": "/images/photo-5.jpg",
+    "alt": "Home",
+    "bubble": "back home in Salem",
+    "width": 450,
+    "height": 600
+   }
+  ]
+ },
+ "footer": {
+  "pet_bubble": "details are the whole point"
+ },
+ "projects": {
+  "heading": "Projects",
+  "rows": [
+   {
+    "year": "2026",
+    "title": "Multi-modal evidence review agents",
+    "tag": {
+     "label": "53rd place",
+     "color": "#b45309"
+    },
+    "meta": "Hackathon",
+    "href": "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review/leaderboard?username=mugilankani951",
+    "preview": "/images/previews/hackerrank.mp4",
+    "desc": "Agents judging damage-claim photos — top 0.5% of 12,885."
+   },
+   {
+    "year": "",
+    "title": "AI captions in your editor's own style",
+    "tag": {
+     "label": "Building",
+     "color": "#2563eb"
+    },
+    "meta": "Caption Engine",
+    "href": "https://trylua.com",
+    "preview": "/images/previews/caption-engine.jpg",
+    "desc": "Learns your caption style from one AE project; verifies output pixel-by-pixel."
+   },
+   {
+    "year": "",
+    "title": "Training a GPT from scratch",
+    "tag": {
+     "label": "Learning",
+     "color": "#15803d"
+    },
+    "meta": "Open source",
+    "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt",
+    "preview": "/images/previews/training-a-gpt-from-scratch-on-m.jpg",
+    "desc": "Autograd → makemore → nanoGPT, trained on my own GPU."
+   },
+   {
+    "year": "2025",
+    "title": "An AI landing-page designer",
+    "tag": null,
+    "meta": "Lua",
+    "href": "https://github.com/tryLua/lua",
+    "preview": "/images/previews/lua-labs-founder.mp4",
+    "desc": "Learns design from real websites, generates production React pages."
+   },
+   {
+    "year": "",
+    "title": "A personal AI living inside WhatsApp",
+    "tag": null,
+    "meta": "Open source",
+    "href": "https://github.com/mugilan-sakthivel/whatsapp-agent",
+    "preview": "/images/previews/a-personal-ai-living-inside-what.jpg",
+    "desc": "Runs your org's work from WhatsApp — three-tier memory."
+   },
+   {
+    "year": "",
+    "title": "A voice agent for Google Workspace",
+    "tag": null,
+    "meta": "Open source",
+    "href": "https://github.com/mugilan-sakthivel/voice-ai-workspace-agent",
+    "preview": "/images/previews/a-voice-agent-for-google-workspa.jpg",
+    "desc": "Approval-gated writes, audit logs, voice-first."
+   }
+  ]
+ },
+ "experience": {
+  "heading": "Experience",
+  "rows": [
+   {
+    "year": "2026",
+    "title": "Head of Engineering — marketing agents",
+    "tag": null,
+    "meta": "Metaflow",
+    "href": null,
+    "preview": "/images/previews/metaflow.jpg",
+    "desc": "Building the full v3 platform from 0 — production-ready marketing agents."
+   },
+   {
+    "year": "",
+    "title": "Young Minds fellow — one of 12 in India",
+    "tag": null,
+    "meta": "Backed by Accel partners",
+    "href": "https://ymf.org.in/",
+    "preview": "/images/previews/ymf.mp4",
+    "desc": "Growth mindset, how to look at failure — learning from founders and Accel partners."
+   },
+   {
+    "year": "2025",
+    "title": "Founder — building & experimenting with new tech",
+    "tag": null,
+    "meta": "Lua Labs",
+    "href": "https://github.com/tryLua/lua",
+    "preview": "/images/previews/lua-labs-founder.mp4",
+    "desc": "AI video editor, WhatsApp org agent, AI-designed landing pages — and more."
+   },
+   {
+    "year": "",
+    "title": "Founding Engineer — text, image, voice & video agents",
+    "tag": null,
+    "meta": "Kalvium Labs",
+    "href": null,
+    "preview": "/images/previews/ai-products-at-kalvium-labs.jpg",
+    "desc": "Built and managed teams across 5+ projects; 50+ leads from events."
+   }
+  ]
+ }
+}
