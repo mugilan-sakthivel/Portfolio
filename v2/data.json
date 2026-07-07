@@ -22,9 +22,9 @@
     }
   },
   "prose": [
-    "I'm an AI engineer based in Salem, India. I build production-ready agents, and I love taking things from 0 → 1 — I've been working 100-hour weeks for the last few years, because building is the thing I enjoy most.",
-    "In the open I've shipped [caption-engine](https://github.com/mugilan-sakthivel/caption-engine), [Lua](https://github.com/tryLua/lua), and a [WhatsApp agent](https://github.com/mugilan-sakthivel/whatsapp-agent). By day I'm Head of Engineering at Metaflow, building marketing agents; before that I founded Lua Labs. I'm one of 12 selected across India for the [Young Minds Fellowship](https://ymf.org.in/) — backed by partners at Accel — where I now volunteer too.",
-    "I work with GPT, Claude and Gemini — LangChain, LangGraph, the Vercel AI, OpenAI and Claude SDKs — agents deployed on Cloud Run, monitored with LangSmith and Langfuse. Right now I'm learning to train my own models and build LLMs from scratch.",
+    "I'm an AI engineer based in Salem, India. I build production-ready agents and love taking things from 0 → 1 — 100-hour weeks, for years, because building is what I enjoy most.",
+    "In the open I've shipped [caption-engine](https://github.com/mugilan-sakthivel/caption-engine), [Lua](https://github.com/tryLua/lua), and a [WhatsApp agent](https://github.com/mugilan-sakthivel/whatsapp-agent). By day I'm Head of Engineering at Metaflow; before that I founded Lua Labs. One of 12 across India in the [Young Minds Fellowship](https://ymf.org.in/), backed by partners at Accel.",
+    "GPT, Claude, Gemini — LangChain, LangGraph, Vercel AI / OpenAI / Claude SDKs — Cloud Run, LangSmith, Langfuse. Now learning to train my own models.",
     "Say hi on [GitHub](https://github.com/mugilan-sakthivel), [LinkedIn](https://www.linkedin.com/in/mugilansakthivel/), or {email} if you want to talk."
   ],
   "proof": {
@@ -128,7 +128,7 @@
         "meta": "Hackathon",
         "href": "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review/leaderboard?username=mugilankani951",
         "preview": "/images/previews/hackerrank.mp4",
-        "desc": "Agents that judge damage-claim photos against the claim, history and evidence rules — top 0.5% of 12,885."
+        "desc": "Agents judging damage-claim photos — top 0.5% of 12,885."
       },
       {
         "year": "",
@@ -140,7 +140,7 @@
         "meta": "Caption Engine",
         "href": "https://github.com/mugilan-sakthivel/caption-engine",
         "preview": "/images/previews/caption-engine.jpg",
-        "desc": "Learns an editor's caption style from one After Effects project, then captions any raw video as a real editable AEP — verifies its own output pixel-by-pixel."
+        "desc": "Learns your caption style from one AE project; verifies output pixel-by-pixel."
       },
       {
         "year": "",
@@ -149,7 +149,7 @@
         "meta": "Open source",
         "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt",
         "preview": "/images/previews/training-a-gpt-from-scratch-on-m.jpg",
-        "desc": "Autograd → makemore → nanoGPT, trained on my own M2 Pro GPU — learning to build LLMs from zero."
+        "desc": "Autograd → makemore → nanoGPT on my own GPU."
       },
       {
         "year": "",
@@ -158,7 +158,7 @@
         "meta": "Open source",
         "href": "https://github.com/mugilan-sakthivel/agent-harness",
         "preview": "/images/previews/a-reliable-deep-agent-harness.jpg",
-        "desc": "A production-shaped deep-agent harness — deepagents, LangGraph, Gemini and MCP, full-stack."
+        "desc": "deepagents + LangGraph + Gemini + MCP, full-stack."
       },
       {
         "year": "2025",
@@ -167,7 +167,7 @@
         "meta": "Lua",
         "href": "https://github.com/tryLua/lua",
         "preview": "/images/previews/lua-labs-founder.mp4",
-        "desc": "Lua learns design from real websites through a Chrome extension and generates production-ready React landing pages."
+        "desc": "Learns design from real sites, generates production React pages."
       },
       {
         "year": "",
@@ -176,7 +176,7 @@
         "meta": "Open source",
         "href": "https://github.com/mugilan-sakthivel/whatsapp-agent",
         "preview": "/images/previews/a-personal-ai-living-inside-what.jpg",
-        "desc": "A personal AI living in WhatsApp that handles your org's work — three-tier memory, per-user Google Workspace tools."
+        "desc": "Runs your org's work from WhatsApp — three-tier memory."
       },
       {
         "year": "",
@@ -185,7 +185,7 @@
         "meta": "Open source",
         "href": "https://github.com/mugilan-sakthivel/voice-ai-workspace-agent",
         "preview": "/images/previews/a-voice-agent-for-google-workspa.jpg",
-        "desc": "Voice-first mobile agent for Google Workspace — approval-gated writes, audit logs, production-ready reliability."
+        "desc": "Approval-gated writes, audit logs, voice-first."
       }
     ]
   },
@@ -199,7 +199,7 @@
         "meta": "Metaflow",
         "href": null,
         "preview": "/images/previews/metaflow.jpg",
-        "desc": "Joined to build the full v3 platform from 0 — production-ready marketing agents."
+        "desc": "Building the full v3 platform from 0 — production-ready marketing agents."
       },
       {
         "year": "",
@@ -208,7 +208,7 @@
         "meta": "Backed by Accel partners",
         "href": "https://ymf.org.in/",
         "preview": "/images/previews/ymf.mp4",
-        "desc": "Learning self-improvement, a growth mindset and how to look at failure — directly from founders and partners at Accel."
+        "desc": "Growth mindset, how to look at failure — learning from founders and Accel partners."
       },
       {
         "year": "2025",
@@ -217,7 +217,7 @@
         "meta": "Lua Labs",
         "href": "https://github.com/tryLua/lua",
         "preview": "/images/previews/lua-labs-founder.mp4",
-        "desc": "An AI video editor, an AI agent living in WhatsApp that runs your org's work, AI-designed landing pages — and more."
+        "desc": "AI video editor, WhatsApp org agent, AI-designed landing pages — and more."
       },
       {
         "year": "",
@@ -226,7 +226,7 @@
         "meta": "Kalvium Labs",
         "href": null,
         "preview": "/images/previews/ai-products-at-kalvium-labs.jpg",
-        "desc": "Built and managed teams across 5+ projects, brought 50+ leads from events — shipping text, image, voice & video agents."
+        "desc": "Built and managed teams across 5+ projects; 50+ leads from events."
       }
     ]
   }
