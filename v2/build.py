@@ -179,7 +179,8 @@ def proof_section():
         f'<a class="v2-proof__lib" href="{p["label_href"]}" target="_blank" rel="noopener noreferrer" '
         f'data-hover-sound="tick" data-press-sound="press" data-astro-cid-pfgrcgrj>{escape(p["label"])}</a> '
         f'<span class="v2-proof__figures" data-astro-cid-pfgrcgrj>{stats}</span> </p> '
-        f'<ul class="v2-proof__quotes" data-astro-cid-pfgrcgrj>{"".join(quotes)}</ul> </aside>'
+        + (f'<ul class="v2-proof__quotes" data-astro-cid-pfgrcgrj>{"".join(quotes)}</ul> ' if quotes else '')
+        + '</aside>'
     )
 
 
