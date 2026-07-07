@@ -23,7 +23,7 @@
   },
   "prose": [
     "I'm an AI engineer based in Salem, India. I build agents that do real work — the kind where you only notice the engineering when it's missing.",
-    "In the open I've shipped [caption-engine](https://github.com/mugilan-sakthivel/caption-engine), [Lua](https://github.com/tryLua/lua), and a [WhatsApp agent](https://github.com/mugilan-sakthivel/whatsapp-agent). By day I'm Head of Engineering at Metaflow, building marketing agents; before that I founded Lua Labs. I'm one of 12 selected across India for the Accel-backed [Young Minds Fellowship](https://ymf.org.in/), where I now volunteer too.",
+    "In the open I've shipped [caption-engine](https://github.com/mugilan-sakthivel/caption-engine), [Lua](https://github.com/tryLua/lua), and a [WhatsApp agent](https://github.com/mugilan-sakthivel/whatsapp-agent). By day I'm Head of Engineering at Metaflow, building marketing agents; before that I founded Lua Labs. I'm one of 12 selected across India for the [Young Minds Fellowship](https://ymf.org.in/) — backed by partners at Accel — where I now volunteer too.",
     "Say hi on [GitHub](https://github.com/mugilan-sakthivel), [LinkedIn](https://www.linkedin.com/in/mugilansakthivel/), or {email} if you want to talk."
   ],
   "proof": {
@@ -77,7 +77,7 @@
         "year": "2026",
         "title": "One of 12 Young Minds fellows in India",
         "tag": null,
-        "meta": "Accel-backed",
+        "meta": "Backed by Accel partners",
         "href": "https://ymf.org.in/",
         "preview": "/images/previews/ymf.jpg"
       },
