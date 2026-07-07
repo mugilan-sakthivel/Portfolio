@@ -83,9 +83,13 @@ def index_row(i, row):
     year_start = " v2-row--year-start" if row.get("year") else ""
     tag = f' {tag_html(row["tag"])}' if row.get("tag") else " "
     preview = f' data-preview="{row["preview"]}"' if row.get("preview") else ""
+    desc = (
+        f'<span class="v2-row__desc" data-astro-cid-xurrqhsc>{escape(row["desc"])}</span>'
+        if row.get("desc") else ""
+    )
     inner = (
         f' <span class="v2-row__year" data-astro-cid-xurrqhsc>{escape(row.get("year") or "")}</span> '
-        f'<span class="v2-row__title" data-astro-cid-xurrqhsc> {escape(row["title"])}{tag}</span> '
+        f'<span class="v2-row__title" data-astro-cid-xurrqhsc> {escape(row["title"])}{tag}{desc}</span> '
         f'<span class="v2-row__meta" data-astro-cid-xurrqhsc>{escape(row["meta"])}</span> '
     )
     if row.get("href"):
@@ -253,7 +257,7 @@ def build_html():
         f"{footer_section()}"
         f'<script type="module" src="/_astro/SiteFooter.js"></script>'
         f'<script type="module" src="/_astro/index-page.js"></script>'
-        f'<script type="module" src="/_astro/rowPreview.js"></script>'
+        f'<!-- preview cards disabled for now: <script type="module" src="/_astro/rowPreview.js"></script> -->'
         f"</main>"
     )
     return (
@@ -265,6 +269,8 @@ def build_html():
 # ------------------------------------------------------- row hover preview
 
 PREVIEW_CSS = """
+.v2-row__desc{display:block;font-size:.85em;line-height:1.45;opacity:.58;font-weight:400;margin-top:2px;max-width:34em}
+
 .row-preview{position:fixed;left:0;top:0;z-index:60;pointer-events:none;will-change:transform;transition:transform .38s cubic-bezier(.22,1,.36,1)}
 .row-preview__card{display:block;width:min(280px,22vw);padding:7px 7px 7px;background:var(--white,#fff);border:1px solid var(--v2-hairline,#e4e2de);box-shadow:#00000029 0 18px 44px,#00000014 0 4px 12px;transform-origin:center center;opacity:0;transform:translateY(-50%) scale(.84) rotate(calc(var(--pt,4deg)*1.6));transition:opacity .16s ease,transform .42s cubic-bezier(.34,1.4,.64,1)}
 .row-preview.is-visible .row-preview__card{opacity:1;transform:translateY(-50%) scale(1) rotate(var(--pt,4deg))}
