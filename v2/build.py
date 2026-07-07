@@ -192,17 +192,17 @@ def shelf_section():
 def footer_section():
     """Footer copied structurally 1:1 from the source (clock, cat, fish)."""
     pet_bubble = bubble_spans(DATA["footer"]["pet_bubble"], with_semis=True)
-    cat_svg = """<svg class="v2-pet__svg" viewBox="0 0 40 32" fill="none" aria-hidden="true"> <g class="cat-dreams" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"> <g class="cat-z-1" stroke-width="1.5"> <path d="M34 1 L38 1 L34 5 L38 5"></path> </g> <g class="cat-z-2" stroke-width="1.3"> <path d="M37 -1.2 L40 -1.2 L37 1.8 L40 1.8"></path> </g> </g> <g class="cat-body"> <g class="cat-whiskers" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none"> <path d="M8.5 10.5 L2 8.6"></path> <path d="M8 12.8 L1.2 12.6"></path> <path d="M8.5 15 L2.2 16.8"></path> <path d="M25.5 10.5 L32 8.6"></path> <path d="M26 12.8 L32.8 12.6"></path> <path d="M25.5 15 L31.8 16.8"></path> </g> <path class="cat-tail" d="M26.8 26 C30.2 25 32 21 31.2 16.8" stroke="currentColor" stroke-width="2.7" stroke-linecap="round" fill="none"></path> <path fill="currentColor" d="M10.3 9 L8.6 2.8 L13.6 5 C15.6 4.3 18.4 4.3 20.4 5 L25.4 2.8 L23.7 9 C24.6 10.8 24.9 13 24.2 15 C26.3 17.2 27.4 20.4 27.3 23.6 C27.3 25.8 26 27.6 23.5 28.3 C19.5 29.3 14.5 29.3 11.5 28.2 C8.9 27 7.8 24 8.2 21 C8.5 18.5 9.3 16.4 10.6 14.9 C9.6 12.9 9.7 10.9 10.3 9 Z"></path> <g class="cat-eyes"> <circle class="cat-eye" cx="13.9" cy="11.6" r="2.1" fill="rgb(251, 250, 249)"></circle> <circle class="cat-eye" cx="20.1" cy="11.6" r="2.1" fill="rgb(251, 250, 249)"></circle> </g> </g> </svg>"""
-    fish_svg = """<svg class="v2-feed__fish" viewBox="0 0 16 10" fill="none" aria-hidden="true"> <path d="M1.5 5 C4 1.5 8 1 11 3.2 L14.5 1 L13.5 5 L14.5 9 L11 6.8 C8 9 4 8.5 1.5 5 Z" fill="currentColor"></path> <circle cx="4.5" cy="4.2" r="0.7" fill="rgb(251, 250, 249)"></circle> </svg>"""
+    cat_svg = """<svg class="v2-pet__svg" viewBox="0 0 40 32" fill="none" aria-hidden="true"> <g class="cat-dreams" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none"> <g class="cat-z-1" stroke-width="1.5"> <path d="M34 1 L38 1 L34 5 L38 5"></path> </g> <g class="cat-z-2" stroke-width="1.3"> <path d="M37 -1.2 L40 -1.2 L37 1.8 L40 1.8"></path> </g> </g> <g class="cat-body"> <g class="cat-whiskers" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"> <path d="M7.5 12 L4.5 12"></path> <path d="M26.5 12 L29.5 12"></path> </g> <path class="cat-tail" d="M17 7.5 C17 5.8 17 4.6 17 3.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"></path> <circle cx="17" cy="2.6" r="1.5" fill="currentColor"></circle> <path fill="currentColor" d="M10.5 7 L23.5 7 C25.4 7 26.5 8.1 26.5 10 L26.5 16 C26.5 17.9 25.4 19 23.5 19 L22 19 L22 20.5 L23.8 20.5 C26 20.5 27.2 21.7 27.2 23.9 L27.2 25.6 C27.2 27.4 26 28.6 24.2 28.6 L9.8 28.6 C8 28.6 6.8 27.4 6.8 25.6 L6.8 23.9 C6.8 21.7 8 20.5 10.2 20.5 L12 20.5 L12 19 L10.5 19 C8.6 19 7.5 17.9 7.5 16 L7.5 10 C7.5 8.1 8.6 7 10.5 7 Z"></path> <g class="cat-eyes"> <circle class="cat-eye" cx="13.6" cy="12.6" r="2" fill="rgb(251, 250, 249)"></circle> <circle class="cat-eye" cx="20.4" cy="12.6" r="2" fill="rgb(251, 250, 249)"></circle> </g> <rect x="14.6" y="24" width="4.8" height="1.4" rx="0.7" fill="rgb(251, 250, 249)"></rect> </g> </svg>"""
+    fish_svg = """<svg class="v2-feed__fish" viewBox="0 0 16 10" fill="none" aria-hidden="true"> <path d="M2 5 L9.2 0.8 L7.4 4 L14 5 L6.8 9.2 L8.6 6 Z" fill="currentColor"></path> </svg>"""
     return (
         f'<footer class="v2-footer" data-astro-cid-f5r2mlfl> '
         f'<span class="v2-footer__line" data-astro-cid-f5r2mlfl> '
         f'<span class="v2-clock slot-text" data-v2-clock data-astro-cid-f5r2mlfl>{char_slots("0:00am")}</span> '
-        f'{escape(S["location_label"])}'
+        f'<span data-v2-loc>{escape(S["location_label"])}</span>'
         f'<span class="v2-pet" data-v2-pet aria-hidden="true" data-astro-cid-fevfxcpg> '
         f'<span class="bubble v2-pet__bubble" data-v2-bubble="true" data-astro-cid-fevfxcpg="true" '
         f'data-astro-cid-erjq6yp3>{pet_bubble}</span> {cat_svg} </span>'
-        f'<button type="button" class="v2-feed" data-v2-feed aria-label="Feed the cat" '
+        f'<button type="button" class="v2-feed" data-v2-feed aria-label="Charge the robot" '
         f'data-hover-sound="tick" data-astro-cid-f5r2mlfl> {fish_svg} </button> </span> </footer>'
     )
 
@@ -257,6 +257,7 @@ def build_html():
         f"{footer_section()}"
         f'<script type="module" src="/_astro/SiteFooter.js"></script>'
         f'<script type="module" src="/_astro/index-page.js"></script>'
+        f'<script type="module" src="/_astro/locLive.js"></script>'
         f'<!-- preview cards disabled for now: <script type="module" src="/_astro/rowPreview.js"></script> -->'
         f"</main>"
     )
@@ -376,8 +377,19 @@ def copy_assets():
         code = rewrite_imports(code)
 
         if new == "SiteFooter.js":
-            code = code.replace("Europe/London", S["timezone"])
+            code = code.replace('timeZone:"Europe/London"', f'timeZone:(window.__LOC_TZ||"{S["timezone"]}")')
             code = code.replace("Derby time.", f'{S["city_short"]} time.')
+            for old_m, new_m in [
+                ("purr. acceptable.", "beep. acceptable."),
+                ("finally. service.", "charge received."),
+                ("five stars. one fish.", "five stars. one bolt."),
+                ("careful, fresh paint", "careful, fresh circuits"),
+                ("he sleeps. I ship.", "he sleeps. I keep watch."),
+                ("I'm full. save it.", "battery full. save it."),
+                ("asleep. leave it by the door.", "recharging. leave it by the dock."),
+                ("that's one treat you owe", "that's one volt you owe"),
+            ]:
+                code = code.replace(old_m, new_m)
         if new == "ProofStrip.js":
             p = DATA["proof"]
             if p.get("live_stars_repo"):
@@ -389,6 +401,12 @@ def copy_assets():
             code += PREVIEW_CSS
         (astro_out / new).write_text(code)
     (astro_out / "rowPreview.js").write_text(PREVIEW_JS)
+    (astro_out / "locLive.js").write_text(
+        'const u="' + S["location_source"] + '";\n'
+        'fetch(u,{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{if(!d)return;'
+        'if(d.tz)window.__LOC_TZ=d.tz;'
+        'const el=document.querySelector("[data-v2-loc]");'
+        'if(el&&d.city)el.textContent="in "+d.city;}).catch(()=>{});\n')
 
     # layout.js is loaded by the built page as a module script
     fonts = OUT / "fonts"
