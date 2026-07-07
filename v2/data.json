@@ -11,14 +11,15 @@
     "og_image": "/images/website-logo.png",
     "updated": "Updated 7 Jul 2026",
     "job_title": "AI Engineer",
-    "email": "mugilankani951@gmail.com",
+    "email": "mugilan.s951@gmail.com",
     "timezone": "Asia/Kolkata",
     "location_label": "in Bengaluru, India",
     "city_short": "Bengaluru",
     "social": {
       "github": "https://github.com/mugilan-sakthivel",
       "linkedin": "https://www.linkedin.com/in/mugilansakthivel/",
-      "x": "https://x.com/MugilanKani"
+      "x": "https://x.com/MugilanKani",
+      "instagram": "https://www.instagram.com/mugilan__sakthivel/"
     },
     "location_source": "https://gist.githubusercontent.com/mugilan-sakthivel/7430d2ac7a323ef732c8d31d08e0e68b/raw/location.json"
   },
@@ -31,7 +32,8 @@
     "GPT, Claude, Gemini; LangChain, LangGraph, Vercel AI / OpenAI / Claude SDKs; shipped end to end on GCP and AWS, monitored with LangSmith and Langfuse. My real edge: hand me anything new and I'm working in it ==within 24 hours==."
   ],
   "prose_tail": [
-    "Say hi on [GitHub](https://github.com/mugilan-sakthivel), [LinkedIn](https://www.linkedin.com/in/mugilansakthivel/), or {email} if you want to talk."
+    "I also create content about AI as a creator on [Instagram](https://www.instagram.com/mugilan__sakthivel/) — building in public, one reel at a time.",
+    "Say hi on [GitHub](https://github.com/mugilan-sakthivel), [LinkedIn](https://www.linkedin.com/in/mugilansakthivel/), [Instagram](https://www.instagram.com/mugilan__sakthivel/), or {email} if you want to talk."
   ],
   "journey": {
     "aria_label": "journey",
