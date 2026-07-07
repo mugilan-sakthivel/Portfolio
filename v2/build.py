@@ -285,8 +285,7 @@ def build_body():
         f'<h3 data-astro-cid-j7pv25f6>{escape(S["author"])}</h3> '
         f'<p class="v2-updated" data-astro-cid-j7pv25f6>{escape(S["updated"])}</p> '
         f'<div class="v2-prose" data-astro-cid-j7pv25f6>{prose}</div> '
-        f"{proof_section()}"
-        f'<script type="module" src="/_astro/ProofStrip.js"></script>'
+        + ((proof_section() + '<script type="module" src="/_astro/ProofStrip.js"></script>') if DATA.get("proof") else "") +
         f'{index_section(DATA["projects"], "projects")}'
         f'{index_section(DATA["experience"], "experience")}'
         f"{shelf_section()}"
@@ -555,7 +554,7 @@ def copy_assets():
             code = code.replace("I'm full. save it.", "battery full. save it for the blackout.")
             code = code.replace("asleep. leave it by the door.", "recharging. leave it by the dock.")
         if new == "ProofStrip.js":
-            p = DATA["proof"]
+            p = DATA.get("proof") or {}
             if p.get("live_stars_repo"):
                 code = code.replace("Danilaa1/slot-text", p["live_stars_repo"])
             if p.get("live_npm_package"):
