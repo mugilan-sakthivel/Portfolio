@@ -37,19 +37,16 @@
   "aria_label": "journey",
   "stages": [
    {
-    "label": "Frontend"
+    "label": "Full-stack developer"
    },
    {
-    "label": "Backend"
+    "label": "AI agent builder"
    },
    {
-    "label": "Full-stack"
+    "label": "Founder"
    },
    {
-    "label": "AI agents"
-   },
-   {
-    "label": "ML",
+    "label": "ML engineer",
     "now": true
    }
   ]

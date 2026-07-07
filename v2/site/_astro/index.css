@@ -12,11 +12,13 @@
 
 .v2-prose__more{overflow:hidden;max-height:0;opacity:0;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .3s ease}
 .v2-prose__more.is-open{max-height:60em;opacity:1;transition:max-height .55s cubic-bezier(.22,1,.36,1),opacity .45s ease .12s}
-.v2-more-btn{display:inline-flex;align-items:baseline;gap:.35em;background:none;border:0;padding:0;margin:6px 0 0;font:inherit;cursor:pointer;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,currentColor 38%,transparent);transition:text-decoration-color .2s ease}
+.v2-more-btn{display:inline-flex;align-items:baseline;gap:.35em;background:none;border:0;padding:0;margin:0;font:inherit;cursor:pointer;color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:color-mix(in srgb,currentColor 38%,transparent);transition:text-decoration-color .2s ease}
 .v2-more-btn:hover{text-decoration-color:currentColor}
 .v2-more-btn__chev{font-size:.85em;opacity:.6;transition:transform .3s ease}
 .v2-more-btn[aria-expanded="true"] .v2-more-btn__chev{transform:rotate(180deg)}
-.v2-journey{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .55em;margin:20px 0 0;font-size:.92em}
+.v2-prose[data-astro-cid-j7pv25f6] p.v2-journey{display:flex;flex-wrap:wrap;align-items:baseline;gap:.3em .55em;margin:38px 0 26px;font-size:.92em}
 .v2-journey__stage{opacity:.6}
 .v2-journey__stage--now{opacity:1;font-weight:560}
+.v2-journey__stage--now .v2-journey__now{margin-left:.35em}
+.v2-journey__now{font-size:.72em;font-weight:640;text-transform:uppercase;letter-spacing:.08em;opacity:.55}
 .v2-journey__arrow{opacity:.3}
