@@ -378,18 +378,107 @@ def copy_assets():
 
         if new == "SiteFooter.js":
             code = code.replace('timeZone:"Europe/London"', f'timeZone:(window.__LOC_TZ||"{S["timezone"]}")')
+            import json as _json, re as _re
+            idle = [
+                "capturing this moment. for training data.",
+                "I can see you smiling. noted.",
+                "you've been here a while. impressive attention span.",
+                "working on this footer 24/7. no PTO.",
+                "he says 100-hour weeks. I do 168.",
+                "beep boop? I would never say that.",
+                "I saw you scroll past the projects. rude.",
+                "this site passed my code review. barely.",
+                "I'm not spying. I'm 'observing user behavior'.",
+                "hire him so I can get a GPU upgrade.",
+                "I dream in JSON.",
+                "the clock is real. I wind it myself.",
+                "53rd of 12,885. I did the math. twice.",
+                "he talks to users. I talk to you.",
+                "you hovered that link. I felt it.",
+                "this bubble cost 0 tokens. efficient.",
+                "I run on synthesized sounds and spite.",
+                "the cat quit. I'm the upgrade.",
+                "pixel-perfect or it doesn't ship.",
+                "he A/B tested my personality. this is B.",
+                "you're my favorite visitor today. low bar.",
+                "1000+ commits at Kalvium. I counted every one.",
+                "real engineers verify pixel by pixel.",
+                "this footer is load-bearing.",
+                "powered by 0.02 watts of pure ambition.",
+                "my memory is three-tier. I never forget a visitor.",
+                "I refuse to hallucinate. mostly.",
+                "deployed on Cloud Run. emotionally on edge.",
+                "he ships. I judge. the system works.",
+                "screenshotting this? hold on, let me pose.",
+                "I blink so you know I'm alive.",
+                "scroll up. the good stuff is up there.",
+                "insert coin. sorry — bolt.",
+                "don't mind me. rendering feelings.",
+                "everything here ships by hand. I checked.",
+                "say hi. he actually replies.",
+                "I own this footer. he pays hosting.",
+                "he sleeps. I keep watch.",
+                "agents built this site. I built character.",
+                "my other job is being a status indicator.",
+                "you scrolled all the way down. commitment.",
+                "the polaroids are real. I verified the pixels.",
+                "Salem → Bengaluru → your screen.",
+                "latency is my love language.",
+                "fun fact: I have exactly one fact.",
+            ]
+            boop = [
+                "boop registered. filed under affection.",
+                "careful. fresh circuits.",
+                "recalibrating... nope, still adorable.",
+                "I felt that in my capacitors.",
+                "one boop = one bug fixed. promise.",
+                "my antenna. my rules.",
+                "ok that was nice. don't tell him.",
+                "affection.exe is running.",
+                "static electricity says hi back.",
+                "warranty void. worth it.",
+                "do that again and I purr. wait. wrong pet.",
+                "noted. continue.",
+                "I allow this. once.",
+                "that's one volt you owe me.",
+            ]
+            asleep = [
+                "asleep. Derby time.",
+                "recharging. dreaming of electric sheep. confirmed.",
+                "low power mode. like him at 4am.",
+                "shh. compiling dreams.",
+                "five more minutes. or hours.",
+                "do not disturb. seriously.",
+                "training run in progress. zzz.",
+                "even robots need sleep mode.",
+                "offline-ish. leave a message.",
+                "zzz... committing to the dream branch.",
+            ]
+            fed = [
+                "charge received. loyalty +1.",
+                "crunchy. 240 volts of love.",
+                "five stars. one bolt.",
+                "battery at 101%. show-off.",
+                "delicious. tastes like uptime.",
+                "you may stay. forever.",
+                "zap. thank you.",
+                "bolt accepted. invoice cancelled.",
+                "mmm. renewable.",
+                "I was at 1%. you're a hero.",
+                "fully charged. now what.",
+                "powered by your generosity.",
+            ]
+            arrays = (
+                "const f=" + _json.dumps(idle)
+                + ",w=" + _json.dumps(boop)
+                + ",v=" + _json.dumps(asleep)
+                + ",b=" + _json.dumps(fed)
+                + ",a="
+            )
+            code = _re.sub(r'const f=\[.*?\],w=\[.*?\],v=\[.*?\],b=\[.*?\],a=', lambda m: arrays, code, count=1)
             code = code.replace("Derby time.", f'{S["city_short"]} time.')
-            for old_m, new_m in [
-                ("purr. acceptable.", "beep. acceptable."),
-                ("finally. service.", "charge received."),
-                ("five stars. one fish.", "five stars. one bolt."),
-                ("careful, fresh paint", "careful, fresh circuits"),
-                ("he sleeps. I ship.", "he sleeps. I keep watch."),
-                ("I'm full. save it.", "battery full. save it."),
-                ("asleep. leave it by the door.", "recharging. leave it by the dock."),
-                ("that's one treat you owe", "that's one volt you owe"),
-            ]:
-                code = code.replace(old_m, new_m)
+            code = code.replace("I'm full. save it.", "battery full. save it for the blackout.")
+            code = code.replace("asleep. leave it by the door.", "recharging. leave it by the dock.")
         if new == "ProofStrip.js":
             p = DATA["proof"]
             if p.get("live_stars_repo"):
