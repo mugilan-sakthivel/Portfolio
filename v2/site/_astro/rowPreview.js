@@ -1,4 +1,4 @@
-// cursor-following project preview card for .v2-row[data-preview]
+// TinkerHub-style tilted preview flyer for .v2-row[data-preview]
 const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 const holder = document.createElement("div");
@@ -13,38 +13,36 @@ card.appendChild(img);
 holder.appendChild(card);
 document.body.appendChild(holder);
 
-let tx = 0, ty = 0, x = 0, y = 0, active = false, raf = 0;
-
-const loop = () => {
-  x += (tx - x) * 0.18;
-  y += (ty - y) * 0.18;
-  const tilt = Math.max(-7, Math.min(7, (tx - x) * 0.12));
-  holder.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  card.style.setProperty("--pt", `${tilt.toFixed(2)}deg`);
-  if (active || Math.abs(tx - x) > 0.3) raf = requestAnimationFrame(loop);
-  else raf = 0;
-};
-
-const start = () => { if (!raf) raf = requestAnimationFrame(loop); };
-
-for (const row of document.querySelectorAll(".v2-row[data-preview]")) {
+let hideTimer = 0;
+const rows = [...document.querySelectorAll(".v2-row[data-preview]")];
+rows.forEach((row, i) => {
   row.addEventListener("pointerenter", (e) => {
     if (e.pointerType !== "mouse" || !fine.matches || reduced.matches) return;
+    if (window.innerWidth < 1024) return;
     const src = row.getAttribute("data-preview");
     if (img.getAttribute("src") !== src) img.src = src;
-    tx = e.clientX; ty = e.clientY;
-    x = tx; y = ty + 6;
-    active = true;
+
+    const r = row.getBoundingClientRect();
+    const table = row.closest(".v2-index__table")?.getBoundingClientRect() ?? r;
+    const cardW = Math.min(400, window.innerWidth * 0.32) + 16;
+    const roomRight = window.innerWidth - table.right;
+    // sit to the right of the table when there's room, overlap its right edge when not
+    const x = roomRight > cardW + 24
+      ? table.right + 28
+      : Math.max(table.left + table.width * 0.45, window.innerWidth - cardW - 16);
+    const y = Math.min(Math.max(r.top + r.height / 2, 170), window.innerHeight - 170);
+
+    const wasVisible = holder.classList.contains("is-visible");
+    if (!wasVisible) holder.style.transition = "none";
+    holder.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    if (!wasVisible) { holder.offsetWidth; holder.style.transition = ""; }
+
+    card.style.setProperty("--pt", `${i % 2 ? -4.5 : 4.5}deg`);
+    clearTimeout(hideTimer);
     holder.classList.add("is-visible");
-    start();
-  });
-  row.addEventListener("pointermove", (e) => {
-    if (!active) return;
-    tx = e.clientX; ty = e.clientY;
-    start();
   });
   row.addEventListener("pointerleave", () => {
-    active = false;
-    holder.classList.remove("is-visible");
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => holder.classList.remove("is-visible"), 60);
   });
-}
+});
