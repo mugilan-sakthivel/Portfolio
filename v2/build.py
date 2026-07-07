@@ -44,6 +44,11 @@ def bubble_spans(text, with_semis=False):
 
 
 LINK_RE = re.compile(r"\[([^\]]+)\]\(([^)]+)\)")
+MARK_RE = re.compile(r"==([^=]+)==")
+
+
+def with_marks(escaped_text):
+    return MARK_RE.sub(r'<mark class="v2-mark">\1</mark>', escaped_text)
 
 
 def basic_link(text, href):
@@ -68,6 +73,7 @@ def prose_paragraph(text):
     # un-escape the markdown link syntax we still need to parse
     text = LINK_RE.sub(lambda m: basic_link(m.group(1), m.group(2)), text)
     text = text.replace("\x00EMAIL\x00", email_link())
+    text = with_marks(text)
     return f"<p data-astro-cid-j7pv25f6>\n{text}\n</p>"
 
 
@@ -84,7 +90,7 @@ def index_row(i, row):
     tag = f' {tag_html(row["tag"])}' if row.get("tag") else " "
     preview = f' data-preview="{row["preview"]}"' if row.get("preview") else ""
     desc = (
-        f'<span class="v2-row__desc" data-astro-cid-xurrqhsc>{escape(row["desc"])}</span>'
+        f'<span class="v2-row__desc" data-astro-cid-xurrqhsc>{with_marks(escape(row["desc"]))}</span>'
         if row.get("desc") else ""
     )
     inner = (
@@ -146,7 +152,7 @@ def proof_section():
         )
         quotes.append(
             f'<li class="v2-proof__quote" data-astro-cid-pfgrcgrj> '
-            f'<q data-astro-cid-pfgrcgrj>{escape(q["q"])}</q> '
+            f'<q data-astro-cid-pfgrcgrj>{with_marks(escape(q["q"]))}</q> '
             f'<span class="v2-proof__who" data-astro-cid-pfgrcgrj>\n—  {who}, {escape(q["org"])} </span> </li>'
         )
     return (
@@ -270,6 +276,8 @@ def build_html():
 # ------------------------------------------------------- row hover preview
 
 PREVIEW_CSS = """
+.v2-mark{background:linear-gradient(100deg,#ffe9a800 1%,#ffe9a8 3.5%,#ffe9a8d9 96%,#ffe9a800 99%);border-radius:.25em .05em;padding:0 .18em;margin:0 -.05em;color:inherit;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
 .v2-row__desc{display:block;font-size:.85em;line-height:1.45;opacity:.58;font-weight:400;margin-top:2px;max-width:34em}
 
 .row-preview{position:fixed;left:0;top:0;z-index:60;pointer-events:none;will-change:transform;transition:transform .38s cubic-bezier(.22,1,.36,1)}
