@@ -268,7 +268,7 @@ PREVIEW_CSS = """
 .row-preview{position:fixed;left:0;top:0;z-index:60;pointer-events:none;will-change:transform;transition:transform .38s cubic-bezier(.22,1,.36,1)}
 .row-preview__card{display:block;width:min(280px,22vw);padding:7px 7px 7px;background:var(--white,#fff);border:1px solid var(--v2-hairline,#e4e2de);box-shadow:#00000029 0 18px 44px,#00000014 0 4px 12px;transform-origin:center center;opacity:0;transform:translateY(-50%) scale(.84) rotate(calc(var(--pt,4deg)*1.6));transition:opacity .16s ease,transform .42s cubic-bezier(.34,1.4,.64,1)}
 .row-preview.is-visible .row-preview__card{opacity:1;transform:translateY(-50%) scale(1) rotate(var(--pt,4deg))}
-.row-preview__card img{display:block;width:100%;height:auto;max-height:200px;object-fit:cover;background:#eceae7}
+.row-preview__card img,.row-preview__card video{display:block;width:100%;height:auto;max-height:200px;object-fit:cover;background:#eceae7}
 @media (hover:none),(prefers-reduced-motion:reduce),(max-width:1023px){.row-preview{display:none}}
 """
 
@@ -283,7 +283,14 @@ card.className = "row-preview__card";
 const img = document.createElement("img");
 img.alt = "";
 img.decoding = "async";
+const vid = document.createElement("video");
+vid.muted = true;
+vid.loop = true;
+vid.playsInline = true;
+vid.preload = "metadata";
+vid.style.display = "none";
 card.appendChild(img);
+card.appendChild(vid);
 holder.appendChild(card);
 document.body.appendChild(holder);
 
@@ -294,7 +301,17 @@ rows.forEach((row, i) => {
     if (e.pointerType !== "mouse" || !fine.matches || reduced.matches) return;
     if (window.innerWidth < 1024) return;
     const src = row.getAttribute("data-preview");
-    if (img.getAttribute("src") !== src) img.src = src;
+    const isVideo = /[.](mp4|webm)$/i.test(src);
+    img.style.display = isVideo ? "none" : "block";
+    vid.style.display = isVideo ? "block" : "none";
+    if (isVideo) {
+      if (vid.getAttribute("src") !== src) vid.src = src;
+      vid.currentTime = 0;
+      vid.play().catch(() => {});
+    } else {
+      vid.pause();
+      if (img.getAttribute("src") !== src) img.src = src;
+    }
 
     const r = row.getBoundingClientRect();
     const table = row.closest(".v2-index__table")?.getBoundingClientRect() ?? r;
@@ -317,7 +334,7 @@ rows.forEach((row, i) => {
   });
   row.addEventListener("pointerleave", () => {
     clearTimeout(hideTimer);
-    hideTimer = setTimeout(() => holder.classList.remove("is-visible"), 60);
+    hideTimer = setTimeout(() => { holder.classList.remove("is-visible"); vid.pause(); }, 60);
   });
 });
 """
@@ -396,6 +413,8 @@ def copy_assets():
         if not row.get("preview"):
             continue
         target = OUT / row["preview"].lstrip("/")
+        if target.suffix.lower() not in (".jpg", ".jpeg", ".png"):
+            continue
         if not target.exists():
             candidate = HERE.parent / "public" / Path(row["preview"]).name
             if candidate.exists():

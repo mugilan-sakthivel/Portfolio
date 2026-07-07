@@ -9,7 +9,14 @@ card.className = "row-preview__card";
 const img = document.createElement("img");
 img.alt = "";
 img.decoding = "async";
+const vid = document.createElement("video");
+vid.muted = true;
+vid.loop = true;
+vid.playsInline = true;
+vid.preload = "metadata";
+vid.style.display = "none";
 card.appendChild(img);
+card.appendChild(vid);
 holder.appendChild(card);
 document.body.appendChild(holder);
 
@@ -20,7 +27,17 @@ rows.forEach((row, i) => {
     if (e.pointerType !== "mouse" || !fine.matches || reduced.matches) return;
     if (window.innerWidth < 1024) return;
     const src = row.getAttribute("data-preview");
-    if (img.getAttribute("src") !== src) img.src = src;
+    const isVideo = /[.](mp4|webm)$/i.test(src);
+    img.style.display = isVideo ? "none" : "block";
+    vid.style.display = isVideo ? "block" : "none";
+    if (isVideo) {
+      if (vid.getAttribute("src") !== src) vid.src = src;
+      vid.currentTime = 0;
+      vid.play().catch(() => {});
+    } else {
+      vid.pause();
+      if (img.getAttribute("src") !== src) img.src = src;
+    }
 
     const r = row.getBoundingClientRect();
     const table = row.closest(".v2-index__table")?.getBoundingClientRect() ?? r;
@@ -43,6 +60,6 @@ rows.forEach((row, i) => {
   });
   row.addEventListener("pointerleave", () => {
     clearTimeout(hideTimer);
-    hideTimer = setTimeout(() => holder.classList.remove("is-visible"), 60);
+    hideTimer = setTimeout(() => { holder.classList.remove("is-visible"); vid.pause(); }, 60);
   });
 });
