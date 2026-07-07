@@ -49,22 +49,22 @@
     ],
     "quotes": [
       {
-        "q": "515+ commits on a production agent platform",
+        "q": "550+ commits building the marketing-agent platform",
         "who": "Metaflow",
         "who_href": null,
-        "org": "Head of Engineering"
+        "org": "Feb 2026 – now"
       },
       {
-        "q": "Captions verified pixel-by-pixel, 0.99 SSIM",
-        "who": "Caption Engine",
-        "who_href": "https://github.com/mugilan-sakthivel/caption-engine",
-        "org": "open source"
+        "q": "120+ commits across Lua products",
+        "who": "Lua Labs",
+        "who_href": "https://github.com/tryLua/lua",
+        "org": "Dec 2025 – now"
       },
       {
-        "q": "2000+ marketing skills shipped",
-        "who": "Metaflow Skills",
+        "q": "200+ commits shipping text, image, voice & video agents",
+        "who": "Kalvium Labs",
         "who_href": null,
-        "org": "platform"
+        "org": "Mar – Nov 2025"
       }
     ],
     "live_stars_repo": null,
@@ -202,7 +202,7 @@
       },
       {
         "year": "2025",
-        "title": "Founder — AI web products",
+        "title": "Founder — building & experimenting with new tech",
         "tag": null,
         "meta": "Lua Labs",
         "href": "https://github.com/tryLua/lua",
@@ -210,7 +210,7 @@
       },
       {
         "year": "",
-        "title": "Software Engineer — AI products",
+        "title": "Founding Engineer — text, image, voice & video agents",
         "tag": null,
         "meta": "Kalvium Labs",
         "href": null,
