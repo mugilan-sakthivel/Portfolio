@@ -247,8 +247,8 @@ def build_html():
         f'<div class="v2-prose" data-astro-cid-j7pv25f6>{prose}</div> '
         f"{proof_section()}"
         f'<script type="module" src="/_astro/ProofStrip.js"></script>'
-        f'{index_section(DATA["work"], "work")}'
-        f'{index_section(DATA["learning"], "learning")}'
+        f'{index_section(DATA["projects"], "projects")}'
+        f'{index_section(DATA["experience"], "experience")}'
         f"{shelf_section()}"
         f"{footer_section()}"
         f'<script type="module" src="/_astro/SiteFooter.js"></script>'
@@ -409,7 +409,7 @@ def copy_assets():
     # row hover previews: gray placeholders with the project name until real shots land
     previews = images / "previews"
     previews.mkdir(exist_ok=True)
-    for row in DATA["work"]["rows"] + DATA["learning"]["rows"]:
+    for row in DATA["projects"]["rows"] + DATA["experience"]["rows"]:
         if not row.get("preview"):
             continue
         target = OUT / row["preview"].lstrip("/")

@@ -70,110 +70,6 @@
     "live_stars_repo": null,
     "live_npm_package": null
   },
-  "work": {
-    "heading": "Work",
-    "rows": [
-      {
-        "year": "2026",
-        "title": "One of 12 Young Minds fellows in India",
-        "tag": null,
-        "meta": "Backed by Accel partners",
-        "href": "https://ymf.org.in/",
-        "preview": "/images/previews/ymf.jpg"
-      },
-      {
-        "year": "",
-        "title": "Multi-modal evidence review agents",
-        "tag": {
-          "label": "53rd place",
-          "color": "#b45309"
-        },
-        "meta": "Hackathon",
-        "href": "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review/leaderboard?username=mugilankani951",
-        "preview": "/images/previews/hackerrank.mp4"
-      },
-      {
-        "year": "",
-        "title": "AI captions in your editor's own style",
-        "tag": {
-          "label": "Building",
-          "color": "#2563eb"
-        },
-        "meta": "Caption Engine",
-        "href": "https://github.com/mugilan-sakthivel/caption-engine",
-        "preview": "/images/previews/caption-engine.jpg"
-      },
-      {
-        "year": "",
-        "title": "Head of Engineering — marketing agents",
-        "tag": null,
-        "meta": "Metaflow",
-        "href": null,
-        "preview": "/images/previews/metaflow.jpg"
-      },
-      {
-        "year": "2025",
-        "title": "An AI landing-page designer",
-        "tag": null,
-        "meta": "Lua Labs — Founder",
-        "href": "https://github.com/tryLua/lua",
-        "preview": "/images/previews/lua-labs-founder.mp4"
-      },
-      {
-        "year": "",
-        "title": "A personal AI living inside WhatsApp",
-        "tag": null,
-        "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/whatsapp-agent",
-        "preview": "/images/previews/a-personal-ai-living-inside-what.jpg"
-      },
-      {
-        "year": "",
-        "title": "A voice agent for Google Workspace",
-        "tag": null,
-        "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/voice-ai-workspace-agent",
-        "preview": "/images/previews/a-voice-agent-for-google-workspa.jpg"
-      },
-      {
-        "year": "",
-        "title": "AI products at Kalvium Labs",
-        "tag": null,
-        "meta": "Work",
-        "href": null,
-        "preview": "/images/previews/ai-products-at-kalvium-labs.jpg"
-      }
-    ]
-  },
-  "learning": {
-    "heading": "Learning",
-    "rows": [
-      {
-        "year": "2026",
-        "title": "Training a GPT from scratch on my own GPU",
-        "tag": null,
-        "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt",
-        "preview": "/images/previews/training-a-gpt-from-scratch-on-m.jpg"
-      },
-      {
-        "year": "",
-        "title": "A reliable deep-agent harness",
-        "tag": null,
-        "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/agent-harness",
-        "preview": "/images/previews/a-reliable-deep-agent-harness.jpg"
-      },
-      {
-        "year": "",
-        "title": "Dissecting production agent harnesses, file by file",
-        "tag": null,
-        "meta": "Course notes",
-        "href": null,
-        "preview": "/images/previews/course-notes.jpg"
-      }
-    ]
-  },
   "shelf": {
     "heading": "Off screen",
     "aria_label": "Photos",
@@ -217,5 +113,109 @@
   },
   "footer": {
     "pet_bubble": "details are the whole point"
+  },
+  "projects": {
+    "heading": "Projects",
+    "rows": [
+      {
+        "year": "2026",
+        "title": "Multi-modal evidence review agents",
+        "tag": {
+          "label": "53rd place",
+          "color": "#b45309"
+        },
+        "meta": "Hackathon",
+        "href": "https://www.hackerrank.com/contests/hackerrank-orchestrate-june26/challenges/multi-modal-review/leaderboard?username=mugilankani951",
+        "preview": "/images/previews/hackerrank.mp4"
+      },
+      {
+        "year": "",
+        "title": "AI captions in your editor's own style",
+        "tag": {
+          "label": "Building",
+          "color": "#2563eb"
+        },
+        "meta": "Caption Engine",
+        "href": "https://github.com/mugilan-sakthivel/caption-engine",
+        "preview": "/images/previews/caption-engine.jpg"
+      },
+      {
+        "year": "",
+        "title": "Training a GPT from scratch on my own GPU",
+        "tag": null,
+        "meta": "Open source",
+        "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt",
+        "preview": "/images/previews/training-a-gpt-from-scratch-on-m.jpg"
+      },
+      {
+        "year": "",
+        "title": "A reliable deep-agent harness",
+        "tag": null,
+        "meta": "Open source",
+        "href": "https://github.com/mugilan-sakthivel/agent-harness",
+        "preview": "/images/previews/a-reliable-deep-agent-harness.jpg"
+      },
+      {
+        "year": "2025",
+        "title": "An AI landing-page designer",
+        "tag": null,
+        "meta": "Lua",
+        "href": "https://github.com/tryLua/lua",
+        "preview": "/images/previews/lua-labs-founder.mp4"
+      },
+      {
+        "year": "",
+        "title": "A personal AI living inside WhatsApp",
+        "tag": null,
+        "meta": "Open source",
+        "href": "https://github.com/mugilan-sakthivel/whatsapp-agent",
+        "preview": "/images/previews/a-personal-ai-living-inside-what.jpg"
+      },
+      {
+        "year": "",
+        "title": "A voice agent for Google Workspace",
+        "tag": null,
+        "meta": "Open source",
+        "href": "https://github.com/mugilan-sakthivel/voice-ai-workspace-agent",
+        "preview": "/images/previews/a-voice-agent-for-google-workspa.jpg"
+      }
+    ]
+  },
+  "experience": {
+    "heading": "Experience",
+    "rows": [
+      {
+        "year": "2026",
+        "title": "Head of Engineering — marketing agents",
+        "tag": null,
+        "meta": "Metaflow",
+        "href": null,
+        "preview": "/images/previews/metaflow.jpg"
+      },
+      {
+        "year": "",
+        "title": "Young Minds fellow — one of 12 in India",
+        "tag": null,
+        "meta": "Backed by Accel partners",
+        "href": "https://ymf.org.in/",
+        "preview": "/images/previews/ymf.mp4"
+      },
+      {
+        "year": "2025",
+        "title": "Founder — AI web products",
+        "tag": null,
+        "meta": "Lua Labs",
+        "href": "https://github.com/tryLua/lua",
+        "preview": "/images/previews/lua-labs-founder.mp4"
+      },
+      {
+        "year": "",
+        "title": "Software Engineer — AI products",
+        "tag": null,
+        "meta": "Kalvium Labs",
+        "href": null,
+        "preview": "/images/previews/ai-products-at-kalvium-labs.jpg"
+      }
+    ]
   }
 }
