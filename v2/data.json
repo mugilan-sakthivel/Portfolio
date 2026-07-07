@@ -81,7 +81,8 @@
           "color": "#b45309"
         },
         "meta": "Hackathon",
-        "href": null
+        "href": null,
+        "preview": "/images/previews/multi-modal-evidence-review-agen.jpg"
       },
       {
         "year": "",
@@ -91,42 +92,48 @@
           "color": "#2563eb"
         },
         "meta": "Caption Engine",
-        "href": "https://github.com/mugilan-sakthivel/caption-engine"
+        "href": "https://github.com/mugilan-sakthivel/caption-engine",
+        "preview": "/images/previews/caption-engine.jpg"
       },
       {
         "year": "",
         "title": "Head of Engineering — marketing agents",
         "tag": null,
         "meta": "Metaflow",
-        "href": null
+        "href": null,
+        "preview": "/images/previews/metaflow.jpg"
       },
       {
         "year": "2025",
         "title": "An AI landing-page designer",
         "tag": null,
         "meta": "Lua Labs — Founder",
-        "href": "https://github.com/tryLua/lua"
+        "href": "https://github.com/tryLua/lua",
+        "preview": "/images/previews/lua-labs-founder.jpg"
       },
       {
         "year": "",
         "title": "A personal AI living inside WhatsApp",
         "tag": null,
         "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/whatsapp-agent"
+        "href": "https://github.com/mugilan-sakthivel/whatsapp-agent",
+        "preview": "/images/previews/a-personal-ai-living-inside-what.jpg"
       },
       {
         "year": "",
         "title": "A voice agent for Google Workspace",
         "tag": null,
         "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/voice-ai-workspace-agent"
+        "href": "https://github.com/mugilan-sakthivel/voice-ai-workspace-agent",
+        "preview": "/images/previews/a-voice-agent-for-google-workspa.jpg"
       },
       {
         "year": "",
         "title": "AI products at Kalvium Labs",
         "tag": null,
         "meta": "Work",
-        "href": null
+        "href": null,
+        "preview": "/images/previews/ai-products-at-kalvium-labs.jpg"
       }
     ]
   },
@@ -138,21 +145,24 @@
         "title": "Training a GPT from scratch on my own GPU",
         "tag": null,
         "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt"
+        "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt",
+        "preview": "/images/previews/training-a-gpt-from-scratch-on-m.jpg"
       },
       {
         "year": "",
         "title": "A reliable deep-agent harness",
         "tag": null,
         "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/agent-harness"
+        "href": "https://github.com/mugilan-sakthivel/agent-harness",
+        "preview": "/images/previews/a-reliable-deep-agent-harness.jpg"
       },
       {
         "year": "",
         "title": "Dissecting production agent harnesses, file by file",
         "tag": null,
         "meta": "Course notes",
-        "href": null
+        "href": null,
+        "preview": "/images/previews/course-notes.jpg"
       }
     ]
   },

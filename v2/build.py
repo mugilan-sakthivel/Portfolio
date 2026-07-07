@@ -82,6 +82,7 @@ def tag_html(tag):
 def index_row(i, row):
     year_start = " v2-row--year-start" if row.get("year") else ""
     tag = f' {tag_html(row["tag"])}' if row.get("tag") else " "
+    preview = f' data-preview="{row["preview"]}"' if row.get("preview") else ""
     inner = (
         f' <span class="v2-row__year" data-astro-cid-xurrqhsc>{escape(row.get("year") or "")}</span> '
         f'<span class="v2-row__title" data-astro-cid-xurrqhsc> {escape(row["title"])}{tag}</span> '
@@ -91,11 +92,11 @@ def index_row(i, row):
         ext = ' target="_blank" rel="noopener noreferrer"' if row["href"].startswith("http") else ""
         return (
             f'<a style="--row-i: {i}" data-hover-sound="tick" data-press-sound="press" '
-            f'href="{row["href"]}"{ext} data-astro-cid-xurrqhsc="true" '
+            f'href="{row["href"]}"{ext}{preview} data-astro-cid-xurrqhsc="true" '
             f'class="v2-row{year_start}">{inner}</a>'
         )
     return (
-        f'<div style="--row-i: {i}" aria-disabled="true" data-astro-cid-xurrqhsc="true" '
+        f'<div style="--row-i: {i}" aria-disabled="true"{preview} data-astro-cid-xurrqhsc="true" '
         f'class="v2-row{year_start} v2-row--disabled">{inner}</div>'
     )
 
@@ -252,12 +253,76 @@ def build_html():
         f"{footer_section()}"
         f'<script type="module" src="/_astro/SiteFooter.js"></script>'
         f'<script type="module" src="/_astro/index-page.js"></script>'
+        f'<script type="module" src="/_astro/rowPreview.js"></script>'
         f"</main>"
     )
     return (
         f'<!DOCTYPE html><html lang="{S["lang"]}"> <head>{head_section()}</head> '
         f"<body> {body} </body></html>"
     )
+
+
+# ------------------------------------------------------- row hover preview
+
+PREVIEW_CSS = """
+.row-preview{position:fixed;left:0;top:0;z-index:60;pointer-events:none;will-change:transform}
+.row-preview__card{display:block;width:248px;padding:6px 6px 14px;background:var(--white,#fff);border:1px solid var(--v2-hairline,#e4e2de);box-shadow:#00000024 0 6px 20px,#00000014 0 2px 6px;transform-origin:bottom center;opacity:0;transform:translate(-50%,calc(-100% - 16px)) scale(.82) rotate(var(--pt,0deg));transition:opacity .18s ease,transform .34s cubic-bezier(.34,1.56,.64,1)}
+.row-preview.is-visible .row-preview__card{opacity:1;transform:translate(-50%,calc(-100% - 16px)) scale(1) rotate(var(--pt,0deg))}
+.row-preview__card img{display:block;width:100%;height:156px;object-fit:cover;background:#eceae7}
+@media (hover:none),(prefers-reduced-motion:reduce){.row-preview{display:none}}
+"""
+
+PREVIEW_JS = """// cursor-following project preview card for .v2-row[data-preview]
+const fine = window.matchMedia("(hover: hover) and (pointer: fine)");
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+const holder = document.createElement("div");
+holder.className = "row-preview";
+holder.setAttribute("aria-hidden", "true");
+const card = document.createElement("span");
+card.className = "row-preview__card";
+const img = document.createElement("img");
+img.alt = "";
+img.decoding = "async";
+card.appendChild(img);
+holder.appendChild(card);
+document.body.appendChild(holder);
+
+let tx = 0, ty = 0, x = 0, y = 0, active = false, raf = 0;
+
+const loop = () => {
+  x += (tx - x) * 0.18;
+  y += (ty - y) * 0.18;
+  const tilt = Math.max(-7, Math.min(7, (tx - x) * 0.12));
+  holder.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+  card.style.setProperty("--pt", `${tilt.toFixed(2)}deg`);
+  if (active || Math.abs(tx - x) > 0.3) raf = requestAnimationFrame(loop);
+  else raf = 0;
+};
+
+const start = () => { if (!raf) raf = requestAnimationFrame(loop); };
+
+for (const row of document.querySelectorAll(".v2-row[data-preview]")) {
+  row.addEventListener("pointerenter", (e) => {
+    if (e.pointerType !== "mouse" || !fine.matches || reduced.matches) return;
+    const src = row.getAttribute("data-preview");
+    if (img.getAttribute("src") !== src) img.src = src;
+    tx = e.clientX; ty = e.clientY;
+    x = tx; y = ty + 6;
+    active = true;
+    holder.classList.add("is-visible");
+    start();
+  });
+  row.addEventListener("pointermove", (e) => {
+    if (!active) return;
+    tx = e.clientX; ty = e.clientY;
+    start();
+  });
+  row.addEventListener("pointerleave", () => {
+    active = false;
+    holder.classList.remove("is-visible");
+  });
+}
+"""
 
 
 # ---------------------------------------------------------------- assets
@@ -299,7 +364,10 @@ def copy_assets():
             if p.get("live_npm_package"):
                 code = code.replace("slot-text", p["live_npm_package"])
 
+        if new == "index.css":
+            code += PREVIEW_CSS
         (astro_out / new).write_text(code)
+    (astro_out / "rowPreview.js").write_text(PREVIEW_JS)
 
     # layout.js is loaded by the built page as a module script
     fonts = OUT / "fonts"
@@ -323,6 +391,25 @@ def copy_assets():
                     (fr["width"] // 2 - 40, fr["height"] // 2 - 8), "photo soon", fill="#a8a49e"
                 )
                 img.save(target, quality=85)
+    # row hover previews: gray placeholders with the project name until real shots land
+    previews = images / "previews"
+    previews.mkdir(exist_ok=True)
+    for row in DATA["work"]["rows"] + DATA["learning"]["rows"]:
+        if not row.get("preview"):
+            continue
+        target = OUT / row["preview"].lstrip("/")
+        if not target.exists():
+            candidate = HERE.parent / "public" / Path(row["preview"]).name
+            if candidate.exists():
+                shutil.copy(candidate, target)
+            else:
+                from PIL import Image, ImageDraw
+                img = Image.new("RGB", (720, 470), "#e9e7e3")
+                d = ImageDraw.Draw(img)
+                label = row["meta"] if row["meta"] not in ("Open source", "Work", "Hackathon") else row["title"]
+                d.text((28, 220), label, fill="#8f8b85")
+                img.save(target, quality=85)
+
     logo = images / "website-logo.png"
     if not logo.exists():
         from PIL import Image, ImageDraw
