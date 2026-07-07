@@ -145,20 +145,14 @@
       {
         "year": "",
         "title": "Training a GPT from scratch on my own GPU",
-        "tag": null,
+        "tag": {
+          "label": "Learning",
+          "color": "#15803d"
+        },
         "meta": "Open source",
         "href": "https://github.com/mugilan-sakthivel/train-your-own-gpt",
         "preview": "/images/previews/training-a-gpt-from-scratch-on-m.jpg",
         "desc": "Autograd → makemore → nanoGPT on my own GPU."
-      },
-      {
-        "year": "",
-        "title": "A reliable deep-agent harness",
-        "tag": null,
-        "meta": "Open source",
-        "href": "https://github.com/mugilan-sakthivel/agent-harness",
-        "preview": "/images/previews/a-reliable-deep-agent-harness.jpg",
-        "desc": "deepagents + LangGraph + Gemini + MCP, full-stack."
       },
       {
         "year": "2025",
