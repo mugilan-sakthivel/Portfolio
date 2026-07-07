@@ -50,19 +50,19 @@
     ],
     "quotes": [
       {
-        "q": "550+ commits building the v3 platform from 0",
+        "q": "559 commits building the v3 platform from 0",
         "who": "Metaflow",
         "who_href": null,
         "org": "Feb 2026 – now"
       },
       {
-        "q": "290+ commits across Lua products",
+        "q": "600+ commits across Lua products",
         "who": "Lua Labs",
         "who_href": "https://github.com/tryLua/lua",
         "org": "Dec 2025 – now"
       },
       {
-        "q": "600+ commits shipping text, image, voice & video agents",
+        "q": "1000+ commits shipping text, image, voice & video agents",
         "who": "Kalvium Labs",
         "who_href": null,
         "org": "Mar – Nov 2025"
