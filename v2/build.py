@@ -477,6 +477,10 @@ def copy_assets():
             )
             code = _re.sub(r'const f=\[.*?\],w=\[.*?\],v=\[.*?\],b=\[.*?\],a=', lambda m: arrays, code, count=1)
             code = code.replace("Derby time.", f'{S["city_short"]} time.')
+            # no-repeat picker: shuffled deck per array, refills when empty
+            picker = "const __pick=(()=>{const d=new Map();return a=>{let q=d.get(a);if(!q||!q.length){q=[...a];for(let i=q.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[q[i],q[j]]=[q[j],q[i]]}d.set(a,q)}return q.pop()}})();"
+            code = code.replace("const f=", picker + "const f=")
+            code = _re.sub(r'([fwvb])\[Math\.floor\(Math\.random\(\)\*\1\.length\)\]', lambda m: "__pick(" + m.group(1) + ")", code)
             code = code.replace("I'm full. save it.", "battery full. save it for the blackout.")
             code = code.replace("asleep. leave it by the door.", "recharging. leave it by the dock.")
         if new == "ProofStrip.js":
@@ -558,6 +562,11 @@ def main():
         '<script type="module" src="/_astro/page.js"></script>'
         '<script type="module" src="/_astro/layout.js"></script>',
     )
+    import hashlib
+    stamp = hashlib.md5(b"".join(sorted(
+        f.read_bytes() for f in (OUT / "_astro").iterdir()
+    ))).hexdigest()[:8]
+    html = re.sub(r'(/_astro/[A-Za-z-]+\.(?:js|css))', r'\1?v=' + stamp, html)
     (OUT / "index.html").write_text(html)
     print(f"built {OUT / 'index.html'} ({len(html)} bytes)")
 
