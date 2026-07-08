@@ -32,7 +32,7 @@
     "GPT, Claude, Gemini; LangChain, LangGraph, Vercel AI / OpenAI / Claude SDKs; shipped end to end on GCP and AWS, monitored with LangSmith and Langfuse. My real edge: hand me anything new and I'm working in it ==within 24 hours==."
   ],
   "prose_tail": [
-    "I also create content about AI as a creator on [Instagram](https://www.instagram.com/mugilan__sakthivel/) — building in public, one reel at a time — and I'm helping build [Age of AGI](https://ageofagi.vercel.app/), a free community where anyone can learn AI and build with it, together.",
+    "I also create content about AI as a creator on [Instagram](https://www.instagram.com/mugilan__sakthivel/) — building in public, one reel at a time — and I founded [Age of AGI](https://ageofagi.vercel.app/), a free community where anyone can learn AI and build with it, together.",
     "Say hi on [GitHub](https://github.com/mugilan-sakthivel), [LinkedIn](https://www.linkedin.com/in/mugilansakthivel/), [Instagram](https://www.instagram.com/mugilan__sakthivel/), [X](https://x.com/MugilanKani), or {email} if you want to talk."
   ],
   "journey": {
@@ -188,12 +188,12 @@
       },
       {
         "year": "",
-        "title": "Helping build a community of AI builders",
+        "title": "Founder — a community of AI builders",
         "tag": null,
         "meta": "Age of AGI",
         "href": "https://ageofagi.vercel.app/",
         "preview": "/images/previews/age-of-agi.jpg",
-        "desc": "Get good at AI, together — a free, open room to learn AI, build with it, and grow in public. No application, no gatekeeping, every level welcome."
+        "desc": "Founded Age of AGI: get good at AI, together — a free, open room to learn AI, build with it, and grow in public. No application, no gatekeeping, every level welcome."
       },
       {
         "year": "2025",
